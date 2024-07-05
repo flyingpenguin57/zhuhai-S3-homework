@@ -1,0 +1,143 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "accountBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "top3",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/BigBank.sol": "BigBank"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Bank.sol": {
+			"keccak256": "0xff568f3318767bd2d89a5d9c999bc7379fe5cc87a447903a23275ec2c5681e7d",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://3575326a95cc25e646d56c76c625c4a3a889cc8f409a2a417b905f80ac14a992",
+				"dweb:/ipfs/QmWZaZfQrYBcoezm7UcNoPWSvzGjVtg9Huh1oBmHtxTLaM"
+			]
+		},
+		"contracts/BigBank.sol": {
+			"keccak256": "0x19c12a3c719c199c396af579e66c582397bf9320c5a873b8f3973e7698c9a68b",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://55eebab3981c9f980e1abebd5de7435840cfedd0a63fe836630953eec72a122a",
+				"dweb:/ipfs/QmYc4sdSi8FyvfEX6cucebtKa7E1oWbPaoW3bpP5FX2myi"
+			]
+		},
+		"contracts/Ownable.sol": {
+			"keccak256": "0x85c3cf9ef0d7e9efeab73bbb2b46feee213a52081a50d805a66d1214844b679d",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://e48a8317c4c30bd9948102fea68ce759bc3850bf5a8e3b30e0e8ac984ec526ff",
+				"dweb:/ipfs/QmU8B99E3YNiVokpLkdTooueeG3XPxvzm1Vk813jjeCxmi"
+			]
+		}
+	},
+	"version": 1
+}
