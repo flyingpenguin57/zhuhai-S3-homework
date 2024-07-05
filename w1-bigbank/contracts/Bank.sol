@@ -11,22 +11,13 @@ contract Bank is Ownable {
     address[3] public top3;
 
     //withdraw, only admin can do this
-    function withdraw(uint amount) internal onlyOwner {
+    function withdraw(uint amount) public onlyOwner {
         require(amount <= address(this).balance, "insufficient balance!");
         address payable to = payable(msg.sender);
         to.transfer(amount);
     }
 
-    //in top3 or not
-    function inTop3(address addr) internal view returns (bool) {
-        for (uint i = 0; i < top3.length; i++) {
-            if (addr == top3[i]) {
-                return true;
-            }
-        }
-        return false;
-    }
-
+    //sort top3
     function sort() internal {
         if (
             accountBalance[msg.sender] > accountBalance[top3[top3.length - 1]]
@@ -40,7 +31,16 @@ contract Bank is Ownable {
         }
     }
 
-    //sort top3
+    //in top3 or not
+    function inTop3(address addr) private view returns (bool) {
+        for (uint i = 0; i < top3.length; i++) {
+            if (addr == top3[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     function _sort() private {
         for (uint i = top3.length - 1; i >= 1; i--) {
             if (accountBalance[top3[i]] > accountBalance[top3[i - 1]]) {
