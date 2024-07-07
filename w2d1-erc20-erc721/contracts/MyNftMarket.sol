@@ -56,8 +56,9 @@ contract MyNftMarket is IERC721Receiver, IERC1363Receiver {
         SaleInfo memory saleInfo = market[market.length - 1];
         market[marketId] = saleInfo;
         market.pop();
-        
+        //更新最后一个商品对应的market id
         nftInfoToMarketId[saleInfo.nft][saleInfo.nftId] = marketId;
+        //把要下架的商品对应的account设为0地址
         nftInfoToSalerAccount[nftAddr][nftId] = address(0);
 
         //把nft从market的账户下转回给saler

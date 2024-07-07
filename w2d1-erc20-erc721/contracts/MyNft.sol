@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
-contract RoboNFT is Ownable, ERC721 {
+contract MyNFT is Ownable, ERC721 {
 
     //token ipfs前缀
     string private tokenUriPreFix;

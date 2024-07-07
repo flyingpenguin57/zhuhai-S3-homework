@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/interfaces/IERC1363Receiver.sol";
 /** erc20代币 */
 contract Hulio is ERC20 {
     //构造函数
-    constructor(string memory name, string memory symbol) ERC20(name, symbol) {}
+    constructor() ERC20("Hulio", "HU") {}
 
     //erc20 transfer失败
     error ERC1363TransferFailed(address to, uint256 value);
