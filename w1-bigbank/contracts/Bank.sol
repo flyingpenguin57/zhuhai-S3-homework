@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.24;
 
-import "./Ownable.sol";
-
-contract Bank is Ownable {
+contract Bank {
     //account to balance
     mapping(address => uint) public accountBalance;
 
@@ -11,7 +9,7 @@ contract Bank is Ownable {
     address[3] public top3;
 
     //withdraw, only admin can do this
-    function withdraw(uint amount) public onlyOwner {
+    function _withdraw(uint amount) internal {
         require(amount <= address(this).balance, "insufficient balance!");
         address payable to = payable(msg.sender);
         to.transfer(amount);

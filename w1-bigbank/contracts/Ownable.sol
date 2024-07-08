@@ -1,22 +1,16 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.24;
 
+import "./BigBank.sol";
+
 contract Ownable {
+    BigBank bank;
 
-    //owner
-    address public owner;
-
-    constructor() {
-        owner = msg.sender;
+    constructor(address payable addr) {
+        bank = BigBank(addr);
     }
 
-    modifier onlyOwner() {
-        require(msg.sender == owner, "no access.");
-        _;
-    }
-
-    //transfer ownerShip, only owner can do this
-    function transferOwnership(address newOwner) public onlyOwner() {
-        owner = newOwner;
+    function withdraw(uint amount) public {
+        bank.withdraw(amount);
     }
 }
