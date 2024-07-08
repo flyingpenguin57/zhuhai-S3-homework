@@ -14,6 +14,11 @@ contract Hulio is ERC20 {
     //回调onTransferReceived失败
     error ERC1363ReceiveFailed(address to);
 
+    //mint
+    function mint() external {
+        _mint(msg.sender, 10 ** 9);
+    }
+
     //transfer and invoke hook (if to is a contract)
     function transferAndCall(address to, uint256 value, bytes calldata data) public returns (bool) {
         //1. transfer

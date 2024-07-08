@@ -7,6 +7,8 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract MyNFT is Ownable, ERC721 {
 
+    using Strings for uint256;
+
     //token ipfs前缀
     string private tokenUriPreFix;
 
@@ -23,14 +25,14 @@ contract MyNFT is Ownable, ERC721 {
     }
 
     //mint
-    function createNft(uint256 _robotId) public onlyOwner() {
+    function createNft(uint256 _tokenId) public onlyOwner() {
         //ERC721 mint
-        _safeMint(msg.sender, _robotId);
+        _safeMint(msg.sender, _tokenId);
     }
 
-    function tokenURI(uint256 _robotId) public view override returns (string memory) {
-        // Implement your own token URI logic here
-        return string(abi.encodePacked(tokenUriPreFix, _robotId));
+    function tokenURI(uint256 _tokenId) public view override returns (string memory) {
+        string memory _valueAsString = _tokenId.toString();
+        return string(abi.encodePacked(tokenUriPreFix, _valueAsString));
     }
 
     function setTokenUriPrefix(string memory _newPrefix) public onlyOwner {

@@ -5,11 +5,17 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/interfaces/IERC1363Receiver.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+
 
 
 contract MyNftMarket is IERC721Receiver, IERC1363Receiver {
 
-    bytes4 private selector = 0x88a7ca5c;
+    IERC20 hulioToken;
+
+    constructor(address hulioTokenAddr) {
+        hulioToken = IERC20(hulioTokenAddr);
+    }
 
     //出售信息
     struct SaleInfo {
@@ -81,6 +87,8 @@ contract MyNftMarket is IERC721Receiver, IERC1363Receiver {
         //2.判断是否上架
         address saler = nftInfoToSalerAccount[nftAddr][nftId];
         require( saler != address(0), "nft is not in sale.");
+        SaleInfo memory curSaleInfo = market[nftInfoToMarketId[nftAddr][nftId]];
+        require(amount >= curSaleInfo.priceInHulioToken, "please pay enough moneny");
         //3.把最后一个商品放到要下架的商品的位置，把最后一个商品弹出
         uint marketId = nftInfoToMarketId[nftAddr][nftId];
         SaleInfo memory saleInfo = market[market.length - 1];
@@ -93,7 +101,11 @@ contract MyNftMarket is IERC721Receiver, IERC1363Receiver {
         //4.把nft从market的账户下转给buyer
         IERC721 nftContract = IERC721(nftAddr);
         nftContract.safeTransferFrom(address(this), from, nftId);
-        return selector;
+
+        //5.把钱转给卖货的人
+        hulioToken.transfer(saler, amount);
+
+        return IERC1363Receiver.onTransferReceived.selector;
     }
 
     function bytesToUint(bytes memory data) private pure returns (uint256) {
