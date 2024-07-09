@@ -14,7 +14,7 @@ contract Hulio is ERC20Permit {
     //回调onTransferReceived失败
     error ERC1363ReceiveFailed(address to);
 
-    //mint
+    //mint, 暂时允许所有人挖
     function mint() external {
         _mint(msg.sender, 10 ** 9);
     }
