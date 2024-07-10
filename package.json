@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "ether.js": "^1.0.0",
-    "ethers": "^6.13.1"
+    "ethers": "^6.13.1",
+    "viem": "^2.17.3"
   }
 }

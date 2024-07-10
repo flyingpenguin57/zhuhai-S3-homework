@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.24;
 
-import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/interfaces/IERC1363Receiver.sol";
 
 /** erc20代币 */
-contract Hulio is ERC20Permit {
+contract Hulio is ERC20 {
     //构造函数
-    constructor() ERC20Permit("Hulio") ERC20("Hulio", "HU") {}
+    constructor() ERC20("Hulio", "HU") {}
 
     //erc20 transfer失败
     error ERC1363TransferFailed(address to, uint256 value);
