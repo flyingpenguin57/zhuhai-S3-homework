@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { abi } from '../abi/Hulio.json'
 import { ethers } from "ethers";
-import { } from "ethers";
 
 export default function ERC20(publicClient: any, walletClient: any, erc20ReadContract: any, curAccount: any, erc20CA: any) {
 

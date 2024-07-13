@@ -4,12 +4,14 @@ import { createPublicClient, http, getContract, createWalletClient, custom, pars
 import { sepolia } from 'viem/chains'
 import { useState } from 'react';
 import ERC20 from './component/ERC20'
+import NFTRentMarket from './component/NFTRentMarket'
 import { abi } from './abi/Hulio.json'
 
 export default function Home() {
 
     //合约地址
-    const erc20addr = '0x839Dbb0b69bC83E0c1450E36c4a58a21F29F95b8'
+    const erc20addr = '0x8FC9DC015D0854534C55860730889F5D09a33910'
+    const nftRentMarketCa = '0xc5f125b12508B4B24bC21D910a7f152B71cf2fbC'
     //当前连接账号
     const [curAccount, setCurAccount] = useState<any>();
     //wallet client
@@ -45,6 +47,8 @@ export default function Home() {
             <div>Current User: {curAccount}</div>
             <br></br>
             {ERC20(publicClient, wclient, erc20readContract, curAccount, erc20addr)}
+            <br></br>
+            {NFTRentMarket(curAccount,publicClient,nftRentMarketCa)}
         </div>
     );
 }
