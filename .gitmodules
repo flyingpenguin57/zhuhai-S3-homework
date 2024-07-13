@@ -4,3 +4,6 @@
 [submodule "MyFirstDapp-Foundry/lib/openzeppelin-contracts"]
 	path = MyFirstDapp-Foundry/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "mulCallAndMerkelTreeWhiteList/lib/forge-std"]
+	path = mulCallAndMerkelTreeWhiteList/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
